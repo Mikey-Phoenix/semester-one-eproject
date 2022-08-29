@@ -1,0 +1,262 @@
+
+.Footer {
+    position: fixed;
+    bottom: 0%;
+    /* margin-top: 40vh; */
+    width: 100vw;
+    height: 450px;
+    background-color: saddlebrown;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    z-index: -10;
+}
+
+.inner-footer {
+    height: 50%;
+    padding-top: 8%;
+    width: 85%;
+    /* background-color: saddlebrown; */
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    align-items: flex-start;
+}
+
+.insight {
+    /* background-color: slategray; */
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    height: 100%;
+    /* align-items: center; */
+}
+
+.first-insight,
+.second-insight,
+.third-insight {
+    /* background-color: sandybrown; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22%;
+}
+
+.first-insight>p,
+.second-insight>p,
+.third-insight>p {
+    font-size: 20px;
+    color: beige;
+    padding-bottom: 20px;
+}
+
+.first-insight>.inner-first-insight,
+.second-insight>.inner-second-insight,
+.third-insight>.inner-third-insight {
+    /* background-color: black; */
+    height: 1500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15%;
+    padding-top: 0%;
+}
+
+
+.first-insight>.inner-first-insight>span>a,
+.second-insight>.inner-second-insight>span>a,
+.third-insight>.inner-third-insight>span>a {
+    font-size: 16px;
+    text-decoration: none;
+    color: beige;
+    transition: all .3s ease-in-out;
+}
+
+.first-insight>.inner-first-insight>span>a:hover,
+.second-insight>.inner-second-insight>span>a:hover,
+.third-insight>.inner-third-insight>span>a:hover {
+    color: #f6c763 !important;
+    font-size: 17px;
+}
+
+.social-handles {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-handles span a .fa-brands{
+    color: white;
+    font-size: 36px;
+    margin-left: 15px;
+    transition: all .3s ease-in-out;
+}
+
+.social-handles span a .fa-brands:hover {
+    color: #f6c763 !important;
+}
+
+
+
+@media screen  and (min-width:767px)  and (max-width:1200px){
+    .inner-footer {
+        width: 90%;
+        gap: 5%;
+    }
+    .Footer .big-logo{
+        width: 80%;
+    }
+    .Footer{
+        /* border: 2px solid red; */
+        z-index: -100 !important;
+        display: static !important;
+        /* bottom: 30%; */
+    }
+}
+
+
+
+
+@media screen  and (max-width:767px){
+    .Footer {
+        /* z-index: 100; */
+        position: static;
+        height: 1250px;
+        min-width: 90vw !important;
+        padding: 0%;
+        /* background-color: #27ae60; */
+    }
+    /* .Footer > .big-logo{
+        width: 80% !important;
+    } */
+
+    .inner-footer {
+        height: 70%;
+        width: 100%;
+        /* background-color: saddlebrown; */
+        flex-direction: column;
+        gap: 5%;
+        align-items: center;
+    }
+    
+    .insight {
+        /* background-color: slategray; */
+        width: fit-content;
+        flex-direction: column;
+        gap: 10%;
+        height: 100%;
+        align-items: center;
+    }
+    
+    .first-insight,
+    .second-insight,
+    .third-insight {
+        /* background-color: sandybrown; */
+        flex-direction: column;
+        width: 100%;
+        gap: 0%;
+
+    }
+
+    .first-insight>p,
+    .second-insight>p,
+    .third-insight>p {
+        font-size: 25px;
+    }
+    
+    .first-insight>.inner-first-insight>span>a,
+    .second-insight>.inner-second-insight>span>a,
+    .third-insight>.inner-third-insight>span>a {
+        font-size: 20px;
+    }
+    
+    .first-insight>.inner-first-insight,
+    .second-insight>.inner-second-insight,
+    .third-insight>.inner-third-insight {
+        height: 150px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        gap: 17%;
+        padding-top: 5%;
+    }
+    
+    .social-handles {
+        width: 70%;
+    }
+}
+
+
+/* @media screen  and (min-width:275px)  and (max-width:900px){
+    .Footer {
+        height: 1250px;
+    }
+
+    .inner-footer {
+        height: 95%;
+        width: 85%;
+        flex-direction: column;
+        gap: 5%;
+        align-items: center;
+    }
+
+    .insight {
+        width: 100%;
+        flex-direction: column;
+        gap: 10%;
+        height: 100%;
+        align-items: center;
+    }
+
+    .first-insight,
+    .second-insight,
+    .third-insight {
+        flex-direction: column;
+        width: 100%;
+        gap: 0%;
+
+    }
+
+    .first-insight>p,
+    .second-insight>p,
+    .third-insight>p {
+        font-size: 25px;
+    }
+
+    .first-insight>.inner-first-insight>span>a,
+    .second-insight>.inner-second-insight>span>a,
+    .third-insight>.inner-third-insight>span>a {
+        font-size: 20px;
+    }
+
+    .first-insight>.inner-first-insight,
+    .second-insight>.inner-second-insight,
+    .third-insight>.inner-third-insight {
+        height: 150px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        gap: 17%;
+        padding-top: 5%;
+    }
+
+    .social-handles {
+        width: 70%;
+    }
+} */
+
+/* @media screen  and (min-width:425px)  and (max-width:880px){
+    .inner-footer {
+        width: 90%;
+        gap: 5%;
+    }
+} */
+/* Responsiveness For Footer */
+
+/* @media screen  and (min-width:901px)  and (max-width:1000px){
+    .inner-footer {
+        gap: 3%;
+    }
+} */

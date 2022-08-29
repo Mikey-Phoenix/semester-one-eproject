@@ -1,0 +1,1218 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    margin: 0% !important;
+    padding: 0% !important;
+}
+
+/****************************************************************** NAVBAR *******************************************************************/
+.logo{
+    margin-top: -30px;
+    margin-bottom: -20px;
+    margin-left: 10px;
+    width: 200px;
+    height: 100px;
+}
+.color{
+    background-color: #f6c763;
+    display: flex;
+    align-items: center;
+}
+nav .links{
+    margin: auto;
+    font-size: 22px;
+}
+.nav-link.active{
+    color: white !important;
+}
+.nav-link{
+    transition: all ease .3s;
+}
+.nav-link:hover{
+    color: saddlebrown !important;
+}
+#dropdown #active2{
+    color: saddlebrown;
+}
+nav .person{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+nav .person .photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(63, 63, 63);
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+}
+nav .person .userName{
+    color: black;
+    font-size: 17px;
+    font-weight: 200;
+    margin-top: 0px;
+    margin-bottom: 0%;
+    /* margin-left: -20px;   */
+}
+nav .cart-icon{
+    color: black;
+    font-size: 25px;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+nav .indicator{
+    position: absolute;
+    transform: translate(-50%, 30%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+nav .fa-eye{
+    font-size: 25px;
+    margin-top: 12px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.views{
+    transform: translateY(15%);
+    margin-left: -10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+form .search{
+    height: 50px;
+    border-radius: 50px 0 0 50px;
+    border: 0px;
+    box-shadow: 1px 1px 5px rgb(63, 63, 63);
+}
+.search-icon{
+    border-top-right-radius: 100px !important;
+    border-bottom-right-radius: 100px !important;
+    margin-left: -8px;
+    padding-right: 20px;
+    border: 0px !important;
+    height: 50px;
+    width: 60px;
+    background: saddlebrown !important;
+    box-shadow: 1px 1px 5px rgb(63, 63, 63);
+    color: white !important;
+}
+form .search-icon:hover{
+    background: rgb(175, 88, 25);
+}
+
+
+/****************************************************************** HEADER *******************************************************************/
+header{
+    margin-top: 79px;
+    height: 100vh;
+    position: relative;
+}
+.megaContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    justify-content: flex-start;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out .5s;
+    animation: fadeVisibility 0.8s;
+}
+.visible{
+    width: 100%;
+    /* opacity: 1; */
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+}
+#visible{
+    /* background-image: url("../images/carousel/Watch+service.jpg"); */
+    background-image: url("../images/carousel/akram-huseyn-f3nGngsnp3A-unsplash2.jpg");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+@keyframes fadeVisibility {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: opacity linear;
+    }
+}
+
+.hidden{
+    background-image: url("../images/carousel/akram-huseyn-f3nGngsnp3A-unsplash2.jpg");
+}
+
+.transparent{
+    opacity: 0;
+}
+.opaque{
+    opacity: 1;
+}
+.carousel-actions{
+    z-index: 4;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.carousel-actions .carousel-buttons{
+    border-radius: 50px;
+    border: 0px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 50px;
+    color: saddlebrown;
+    margin: 0px 30px;
+}
+.big-logo{
+    height: 200px;
+    width: 400px;
+}
+.openingwords{
+    width: fit-content;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    text-shadow: 2px 2px 10px white;
+    margin-left: 50px;
+}
+.container{
+    /* background-color: #ffffff50; */
+    /* background-color: #ffffff81; */
+    /* background-color: #f6c76367; */
+    height: 100vh;
+    min-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: 170vw 100vh;
+}
+
+
+.almightyContainer{
+    background-color: white;
+    /* padding-bottom: 5px; */
+    margin-bottom: 420px;
+}
+
+
+/****************************************************************** DISCOUNT SECTION *******************************************************************/
+.discount{
+    width: 90vw;
+    margin: auto;
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+.discount .gridItems{
+    border-radius: 15px;
+    border:2px solid saddlebrown;
+    position: relative;
+}
+.discount .image-holder .cast{
+    border-radius: 15px;
+}
+.other{
+    padding-left: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid saddlebrown;
+    border-top: 2px solid saddlebrown;
+    border-radius: 15px;
+}
+.discount-amount{
+    display: grid;
+    grid-template-columns: auto;
+    font-weight: 200 !important;
+    background-color: rgb(253, 51, 51);
+    color: #f6c763;
+    border-radius:0px 0px 15px 15px;
+    padding: 10px;
+    box-shadow: 2px 0px 10px rgb(175, 88, 25);
+    font-size: 45px;
+    text-shadow: 2px 0px 10px rgb(175, 88, 25);
+    position: absolute;
+    top: 0%;
+    right: 10px;
+    font-family: 'Rubik Distressed', cursive;
+}
+#thirty{
+    background-image: url("../images/product/30-offclock-one.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease-in-out .3s;
+    animation: fadeVisibility2 .3s;
+}
+#twenty{
+    background-image: url("../images/product/20-offwatch.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease-in-out .3s;
+    animation: fadeVisibility2 .3s;
+}
+#ten{
+    background-image: url("../images/product/10-offsmart.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease-in-out .3s;
+    animation: fadeVisibility2 .3s;
+}
+.name{
+    font-size: 27px;
+}
+.inner-other{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100px;
+}
+
+
+/****************************************************************** PRODUCTS *******************************************************************/
+.productGalary{
+    padding-top: 70px;
+    font-size: 50px;
+    text-align: center;
+}
+.nav{
+    border-bottom: 2px solid saddlebrown !important;
+    width: 96vw;
+    margin: auto;
+    text-align: center;
+}
+.nav .nav-link.active{
+    background-color: #f6c763 !important;
+    color: saddlebrown;
+    border-top: 2px solid saddlebrown !important;
+    border-left: 2px solid saddlebrown !important;
+    border-right: 2px solid saddlebrown !important;
+}
+.nav .nav-link{
+    width: 24vw;
+    font-size: 22px;
+    color: black;
+    transition: all ease .3s;
+}
+.nav .nav-link:hover{
+    border: 0px;
+    cursor: pointer;
+    color: #f6c763;
+}
+.productContainer{
+    background-color: #f6c763;
+    border-left: 2px solid saddlebrown;
+    border-right: 2px solid saddlebrown;
+    border-bottom: 2px solid saddlebrown;
+    width: 96vw;
+    margin: auto;
+}
+.mobileMenu{
+    display: none !important;
+    width: 80%;
+    border: 2px solid saddlebrown !important;
+    /* margin-left: 10vw; */
+    margin: auto;
+    position: relative;
+    top: 10px;
+    font-size: 22px !important;
+    color: saddlebrown !important;
+}
+.showing{
+    display: none;
+    width: 80%;
+    margin: auto;
+}
+menu{
+    /* background-color: #f6c763; */
+    /* margin-top: 30px; */
+    margin-left: 22px;
+    padding:30px 20px 0px 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: auto;
+    gap: 20px;
+    flex-wrap: wrap;
+    min-width: max-content;
+}
+.heading{
+    color: #f6c763;
+    margin-bottom: 0%;
+    padding: 50px 20px ;
+}
+.menuItem{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: saddlebrown;
+    border: 2px solid saddlebrown;
+    border-radius: 50px;
+    padding: 10px;
+    text-decoration: none;
+    transition: all ease-in-out .3s;
+}
+.menuItem:hover{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    border: 2px solid rgb(175, 88, 25);
+}
+.onmenu{
+    border: 2px solid white;
+    color: white;
+}
+.onmenu:hover{
+    border: 2px solid white;
+    background-color: white;
+    color: #f6c763;
+}
+
+/****************************************************************** GRID *******************************************************************/
+img{
+    height: 100px;
+}
+.none{
+    display: grid !important;
+}
+.gridContainer{
+    /* width: 96vw; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin: auto;
+    padding: 5vw 4vw;
+    /* margin-top: 100px; */
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+.gridContainer .gridItem{
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 270px auto;
+    border: 2px solid saddlebrown;
+    border-bottom: 0px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 1px 1px 5px rgb(14, 13, 13);
+    transition: all ease .3s;
+}
+.gridItem:hover{
+    cursor: pointer;
+    opacity: 1;
+    box-shadow: 2px 2px 10px rgb(14, 13, 13);
+}
+.see{
+    display: none !important;
+}
+.image-holder{
+    height: 300px;
+    max-width: 100%;
+    margin: 0%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 0px;
+    transition: all ease-in-out .8s;
+}
+.image-holder:hover{
+    cursor: pointer;
+}
+.image-holder img{
+    z-index: -1;
+    height: 300px;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 0px;
+    position: absolute;
+    top: 0px;
+}
+.cast{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+.cast:hover{
+    background-size: 175%;
+}
+
+/****************************************************************** PRODUCT ITEMS *******************************************************************/
+#first{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/MK3131_3f87ca22-25ed-44b6-abe4-136ae1304b38.jpg?v=1524778858');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#second{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/CA4184-81E.jpg?v=1574742887');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#third{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/GA1058-16E.jpg?v=1637620128');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#fourth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA136208_c852ee51-d9f1-44d0-8dd8-30798b9789f1.jpg?v=1524778703');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#fifth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA1264034_7c03c34f-e307-402e-a4df-999711234091.jpg?v=1637621334');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#sixth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA136219.jpg?v=1627943686');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#seventh{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/25751.jpg?v=1542869966');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#eighth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/23637.jpg?v=1627940969');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#ninth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/6752.jpg?v=1541446346');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#tenth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34570.jpg?v=1630020189');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#eleventh{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34456.jpg?v=1627941447');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twelfth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34571.jpg?v=1630020190');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#thirteenth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/21683758-a293-4629-b808-10543ecedbb1_1.147f8d5a3850fe8caa7c9e6a5a745edd.jpg?v=1604004593');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#fourteenth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA114105_02717923-a018-470f-92ec-8c7acd3dd970.jpg?v=1506286144');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#fifteenth{
+    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA114214.jpg?v=1627943623');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#sixteenth{
+    background-image: url('https://cdn.mos.cms.futurecdn.net/8xuZK9nCBQq3x4gvwASrhT-970-80.jpg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#seventeenth{
+    background-image: url('https://cdn.mos.cms.futurecdn.net/aDuTmo22UyRPtSaJnbusok-970-80.jpg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#eighteenth{
+    background-image: url('https://cdn.mos.cms.futurecdn.net/XTCZn76aLRJgKxRYz3nwT9-970-80.jpg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#ninteenth{
+    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-625385-462x462.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twentyeth{
+    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-612221-462x462.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-first{
+    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-613180-462x462.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-second{
+    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2018/06/mini-camerer-kuss-drop-dial-wall-clock.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-third{
+    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2020/02/hooded-wall-clock-by-Whenham-and-Son-of-Dereham.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-fourth{
+    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2018/06/webster-fusee-dial-clock.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-fifth{
+    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2022/05/french-striking-four-glass.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-sixth{
+    background-image: url('https://cdn.shopify.com/s/files/1/0659/1203/products/625340-1_1800x1800.jpg?v=1564858126');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-seventh{
+    background-image: url('https://cdn.shopify.com/s/files/1/0659/1203/products/645583_1800x1800.jpg?v=1564945312');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-eighth{
+    background-image: url('https://i.etsystatic.com/24564691/r/il/63f894/3942151072/il_794xN.3942151072_efe2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#twenty-ninth{
+    background-image: url('https://i.etsystatic.com/33111562/r/il/df408d/4093459583/il_794xN.4093459583_s49o.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#thirtyeth{
+    background-image: url('https://i.etsystatic.com/34094154/r/il/353aa5/4093973062/il_794xN.4093973062_1bur.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/****************************************************************** OTHERS *******************************************************************/
+.gridContainer .gridItem .other{
+    padding:20px 0px 10px 10px;
+    z-index: 1;
+    color: white;
+    font-size: 22px;
+    background-color: saddlebrown;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid saddlebrown;
+    border-top: 2px solid saddlebrown;
+    border-radius: 15px;
+}
+.gridContainer .gridItem .name{
+    font-size: 25px;
+    font-weight: 800;
+    color: #f6c763;
+}
+.gridContainer .gridItem .other .inner-other{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100px;
+}
+.gridContainer .gridItem .other .inner-other .addToCart{
+    transition: all ease .3s;
+}
+.gridContainer .gridItem .other .inner-other .addToCart:hover{
+    color: #f6c763;
+    cursor: pointer;
+}
+
+/****************************************************************** REPAIR FORM *******************************************************************/
+.repair-form{
+    border: 0px !important;
+    box-shadow: 0px 0px !important;
+    display: none;
+    grid-column: 1/ span 3;
+    font-size: 22px;
+    width: 90%;
+    margin: auto;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+.repair-form input{
+    color: black;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #f6c763;
+    border-radius: 5px;
+    font-size: 22px;
+}
+.repair-form .smallee{
+    width: 90%;
+}
+.repair-form textarea{
+    width: 100%;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.repair-form .repair-radios{
+    display: inline;
+    text-align: left !important;
+    width: 20px;
+    height: 20px;
+}
+.request{
+    border: 0px !important;
+    box-shadow: 0px 0px !important;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px !important;
+    border: 0px;
+    background-color: rgb(175, 88, 25) !important;
+    grid-column: 1 / span 3 !important ;
+    color: white;
+    margin-top: 0%;
+    margin-bottom: 50px;
+    transition: all ease .3s;
+    display: none;
+}
+.request:hover{
+    background-color: rgb(201, 105, 37) !important;
+}
+
+
+
+/****************************************************************** CHECKOUT *******************************************************************/
+.checkout{
+    font-size: 22px;
+    width: 90vw;
+    margin: auto;
+    margin-bottom: 50px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid saddlebrown;
+}
+.checkoutheading{
+    color: #f6c763;
+    margin-bottom: 0%;
+    font-size: 70px;
+    padding-bottom: 20px;
+}
+.receipientAddress{
+    border-top: 1px solid #f6c763;
+    padding-top: 30px;
+}
+.receipient{
+    padding-left: 20px;
+}
+.checkoutmainform{
+    width: 60vw;
+    padding: 20px;
+}
+.checkoutforminputs{
+    color: black;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #f6c763;
+    border-radius: 5px;
+    font-size: 22px;
+}
+.fullname{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.subname{
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto 300px;
+}
+.small{
+    width: 80%;
+    display: inline;
+}
+.payments{
+    padding: 20px;
+    margin: 20px 0px;
+    border-top: 1px solid #f6c763;
+    border-bottom: 1px solid #f6c763;
+}
+.checkout .form-check-input{
+    background-color: #f6c763 !important;
+    border:1px solid #f6c763 !important;
+    transform: translateY(40%);
+}
+.checkoutmainform label{
+    font-size: 22px;
+    color: rgb(48, 47, 47);
+}
+.checkoutbtn{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: rgb(175, 88, 25);
+    color: white;
+    transition: all ease .3s;
+}
+.checkoutbtn:hover{
+    background-color: rgb(201, 105, 37);
+}
+
+
+
+
+/****************************************************************** ABOUT US *******************************************************************/
+.aboutus{
+    padding-bottom: 100px;
+    border-bottom: 2px solid saddlebrown;
+    width: fit-content;
+    margin: auto;
+}
+
+.aboutusHeading{
+    max-width: 100vw ;
+    height: 40vh;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-image: url('../images/NewFolder/aboutuspagetwo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.brown{
+    color: saddlebrown;
+}
+.cofee{
+    text-decoration: none;
+    color: #f6c763;
+    transition: all ease .3s;
+}
+.firstwords{
+    width: 60vw;
+    font-size: 22px;
+    margin: auto;
+    margin-top: 30px;
+}
+.ourproducts{
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.ourproducts .stuff{
+    width: 60vw;
+    margin-right: 10px;
+    padding-right: 0px;
+}
+.ourproducts .stuff .heading{
+    font-size: 30px;
+    margin: 0%;
+    padding: 0%;
+    width: fit-content;
+}
+.words{
+    font-size: 22px;
+}
+.aboutImages{
+    width: 40vw;
+    height: 60vh;
+}
+.ourservices{
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.ourservices .stuff{
+    width: 60vw;
+    margin-left: 30px;
+    padding-right: 0px;
+}
+.ourservices .stuff .heading{
+    font-size: 30px;
+    margin: 0%;
+    padding: 0%;
+    width: fit-content;
+}
+.quote{
+    width: 60vw;
+    margin: auto;
+    margin-top: 100px;
+}
+.quote > img{
+    width: 100%;
+}
+.quote > div{
+    width: 70%;
+    font-size: 30px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    font-family: 'Dancing Script', cursive;
+}
+.wiseGuy{
+    font-family: 'Dancing Script', cursive;
+    color: gray;
+    position: absolute;
+    right: 0%;
+    display: block;
+}
+.productLink{
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    font-size: 30px;
+    transform: translateY(200%);
+}
+
+
+
+/****************************************************************** CONTACT US *******************************************************************/
+.contactUsHeading{
+    margin-top: 70px;
+    max-width: 100vw !important;
+    height: 40vh;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-image: url('../images/NewFolder/contactus.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+iframe{
+    margin-top: 50px;
+}
+.contactusStuff{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 70px;
+}
+.contactInfo{
+    width: 40vw;
+}
+.contactInfo .infoHead{
+    font-size: 50px;
+}
+.gmail{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    transition: all ease .3s;
+}
+.gmail:hover{
+    color: #f6c763;
+}
+.phone{
+    width: fit-content;
+    font-size: 22px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    transition: all ease .3s;
+}
+.phone:hover{
+    color: #f6c763;
+}
+.form{
+    margin-top: 30px;
+    width: 90%;
+}
+.form .feedbackinputs{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 2px solid saddlebrown;
+    border-radius: 5px;
+    font-size: 22px;
+}
+.submit{
+    width: 200px;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    border-radius: 15px;
+    border: 0px;
+    transition: all ease .3s;
+}
+.form .submit:hover{
+    background-color: rgb(201, 105, 37);
+}
+.feedbackItem{
+    width: 40vw;
+    background-color: saddlebrown;
+    box-shadow: 2px 2px 10px rgb(14, 13, 13);
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.feedbackItem .name{
+    font-size: 30px;
+    color: #f6c763;
+}
+
+
+.seeFooter{
+    height: 450px;
+    width: 100%;
+    opacity: 0;
+}
+
+
+/****************************************************************** ANDROID VIEW *******************************************************************/
+@media only screen and (max-width: 767px){
+
+    nav{
+        width: 100% !important;
+    }
+    body{
+        overflow-x: hidden !important;
+    }
+    nav .links .nav-item a.nav-link{
+        font-size: 22px;
+    }
+    .header{
+        width: 100%;
+    }
+    .big-logo{
+        position: relative;
+        left: 0%;
+        width: 80%;
+    }
+    .almightyContainer{
+        margin-bottom: 0px;
+        width: 100vw !important;
+        z-index: 100;
+    }
+    .heading{
+        width: fit-content;
+    }
+    .productTabs{
+        text-align: left !important;
+        padding-left: 0% !important;
+        font-size: 20px !important;
+    }
+    menu{
+        grid-template-columns: auto auto auto;
+        display: none;
+    }
+    .mobileMenu{
+        display: block !important;
+    }
+    .showing{
+        display: block;
+    }
+    .repair{
+        width: 100% !important;
+    }
+    .discountContainer{
+        width: 100vw !important;
+    }
+    .discount{
+        grid-template-columns: auto;
+        width: 70vw;
+    }
+    .gridContainer{
+        grid-template-columns: auto;
+        width: 70vw;
+    }
+    .fullname{
+        column-gap: 20px;
+    }
+    .subname{
+        column-gap: 20px;
+        width: 60% !important;
+        min-width: 60vw !important;
+        padding: 0% !important;
+        padding-right: -10px !important;
+    }
+    #cvv{
+        width: 100px;
+    }
+    #cvvlabel{
+        width: fit-content;
+    }
+    .successMessage{
+        font-size: 25px !important;
+    }
+    .cancelbutton{
+        font-size: 25px !important;
+        width: 60% !important;
+    }
+    .aboutus{
+        margin: 0%;
+        width: 100vw !important;
+    }
+    .aboutusHeading{
+        width: 100vw    !important;
+    }
+    .firstwords{
+        width: 90vw;
+        font-size: 19px !important;
+    }
+    .aboutImages{
+        height: 200px;
+        width: 90%;
+    }
+    .ourproducts{
+        flex-direction: column;
+        width: 95vw;
+        margin: 20px auto;
+    }
+    .ourproducts .stuff .words{
+        width: 100% !important;
+        margin: 0%;
+    }
+    .ourservices{
+        flex-direction: column;
+        width: 95vw;
+        margin: 20px auto;
+    }
+    .ourservices .stuff .words{
+        width: 100% !important;
+        margin: 0%;
+    }
+    .quote{
+        width: 90%;
+    }
+    .quote > div{
+        font-size: 19px;
+    }
+    .contactUsHeading{
+        width: 100% !important  ;
+    }
+    .contactInfo{
+        width: 70vw;
+    }
+    .contactusStuff .feedback{
+        display: none;
+    }
+    .words{
+        font-size: 19px;
+    }
+}
+
+
+/****************************************************************** IPAD VIEW *******************************************************************/
+@media screen and (max-width: 1200px) and (min-width: 767px){
+    .logo{
+        height: 50px;
+        width: 90px;
+    }
+    nav .person .photo{
+        font-size: 20px;
+    }
+    nav .cart-icon{
+        font-size: 20px;
+    }
+    nav .fa-eye{
+        font-size: 20px;
+    }
+    nav .links .nav-item a.nav-link{
+        font-size: 15px;
+    }
+    form .search{
+        margin-top: 7px;
+        height: 30px;
+        max-width: 90px;
+        font-size: 13px;
+    }
+    form .search-icon{
+        margin-top: 7px;
+        height: 30px; 
+        font-size: 13px;
+        display: inline;
+    }
+    nav .person .userName{
+        font-size: 13px;
+    }
+    .almightyContainer{
+        z-index: 200 !important;
+    }
+    menu{
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .aboutImages{
+        height: 400px;
+    }
+}
