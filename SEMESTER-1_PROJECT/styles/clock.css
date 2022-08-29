@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap');
+
+.clockContainer{
+    margin: 70px 0px;
+    padding-bottom: 150px;
+    background-color: saddlebrown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+
+.clock{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    background-image: url('../images/NewFolder/clock-removebg-preview(1).png');
+    background-size: cover;
+    background-position: -5px;
+}
+
+.clock .hand{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-radius: 10px 10px 0px 0px;
+    z-index: 10;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.clock::after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.clock .hand.second{
+    width: 3px;
+    height: 40%;
+    background-color: white;
+}
+.clock .hand.minute{
+    border: 1px solid #f6c763;
+    width: 7px;
+    height: 35%;
+    background-color: black;
+}
+.clock .hand.hour{
+    border: 1px solid #f6c763;
+    width: 10px;
+    height: 30%;
+    background-color: black;
+}
+
+.clockContainer .cofee{
+    font-size: 2rem;
+    border-bottom: 3px solid #f6c763;
+    border-top: 3px solid #f6c763;
+    padding: 10px;
+    font-family: 'Share Tech', sans-serif;
+}
+
+@media only screen and (max-width: 767px){
+    .clock{
+        width: 200px;
+        height: 200px;
+    }
+    .clockContainer{
+        height: 80vh !important;
+    }
+}
+@media only screen and (min-width: 767px) and (max-width: 1040px){
+    .clock{
+        width: 200px;
+        height: 200px;
+    }
+    .clockContainer{
+        height: 40vh !important;
+    }
+}

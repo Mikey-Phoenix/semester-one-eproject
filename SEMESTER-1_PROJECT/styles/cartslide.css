@@ -1,0 +1,319 @@
+
+*::-webkit-scrollbar{
+    background-color: white;
+    outline: 1px solid white;
+    width: 10px;
+    border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: saddlebrown;
+    width: 100%;
+    border-radius: 5px;
+}
+.productWindowContainer{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    /* background: rgba(255, 255, 255, 0.8); */
+    background-color: #f6c7637a;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all ease .4s;
+}
+.productWindow{
+    overflow-y: scroll;
+    background-color: white;
+    margin: auto;
+    padding: 30px 0px;
+    width: 80vw;
+    min-height: fit-content;
+    height: 80vh;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.tiny{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid rebeccapurple; */
+    width: fit-content;
+    margin: auto;
+}
+.tiny img{
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+}
+.detailsStuff{
+    font-size: 22px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+}
+.detailsStuff .name{
+    font-size: 3rem;
+    color: #f6c763;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+}
+.detailsStuff .detai{
+    /* border: 2px solid red; */
+    width: 100%;
+    font-size: 20px;
+}
+.detailsStuff .price{
+    color: red;
+    font-size: 3rem !important;
+    font-weight: 800;
+}
+.detailsStuff .cart{
+    width: fit-content;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    font-size: 22px;
+    padding: 10px 15px;
+    transition: all ease .3s;
+}
+.detailsStuff .cart:hover{
+    background-color: rgb(211, 113, 43);
+    cursor: pointer;
+}
+.exit{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: saddlebrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    position: absolute;
+    color: #f6c763;
+    right: 20px;
+    top: 10px;
+}
+.exit:hover{
+    cursor: pointer;
+}
+
+
+/* -webkit-::-webkit-scrollbar , ::-webkit-scrollbar-button , ::-webkit-scrollbar-thumb , ::-webkit-scrollbar-track */
+
+
+
+.cartWindowContainer{
+    width: 100%;
+    height: 100vh;
+    z-index: 200;
+    position: fixed;
+    top: 0%;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.cartWindow{
+    border: 2px white solid;
+    color: white;
+    background-color: saddlebrown;
+    z-index: 200;
+    border-radius: 15px 0px 0px 15px;
+    width: 50%;
+    height: 90%;
+    padding: 40px 10px 0px 10px;
+    position: fixed;
+    right: -48%;
+    top: 5%;
+    transition: all ease .3s;
+}
+
+.cartWindow .work{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.cartWindow .semicontainer{
+    width: 100%;
+    height: 92%;
+    overflow-y: scroll;
+}
+.cartdraw{
+    border: 2px white solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: saddlebrown;
+    border-radius: 50%;
+    font-size: 22px;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-70%, -50%);
+}
+.dot{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+}
+.cartdraw:hover{
+    cursor: pointer;
+}
+.cartWindow .innercontainer{
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f6c763;
+}
+.cartWindow img{
+    border-radius: 15px;
+}
+.cartWindow .name{
+    font-size: 3rem;
+    color: #f6c763;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+}
+.price{
+    margin-top: 20px;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+.remove{
+    width: fit-content;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    font-size: 22px;
+    padding: 10px 15px;
+    transition: all ease .3s;
+}
+.cartWindow .remove:hover{
+    background-color: rgb(211, 113, 43);
+    cursor: pointer;
+}
+.total{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.totalSpan{
+    color: #f6c763;
+}
+.continueToCheckout button{
+    position: relative;
+    bottom: 20px;
+    background-color: rgb(175, 88, 25);
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    font-size: 22px;
+    padding: 10px 15px;
+    transition: all ease .3s;
+}
+.continueToCheckout button:hover{
+    background-color: rgb(211, 113, 43);
+    cursor: pointer;
+}
+.totalMobile{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.totalSpanMobile{
+    color: #f6c763;
+}
+.mobile{
+    width: 98%;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 30px;
+    position: static;
+    height: fit-content;
+    display: none;
+}
+.mobile .work{
+    min-height: 200px;
+}
+.shopCartMobile{
+    top: 0% !important;
+    left: 50% !important;
+    transform: translate(-50%, -100%);
+}
+.border-bottom{
+    display: block;
+    width: 90vw;
+    height: 20px;
+    margin: auto;
+    border-bottom: 2px solid saddlebrown;
+}
+
+@media screen and (max-width: 1040px) and (min-width: 767px){
+    .productWindow{
+        width: 80vw;
+    }
+    .img{
+        height: 200px;
+    }
+    .detailsStuff{
+        font-size: 17px;
+    }
+    .detailsStuff name{
+        font-size: 2rem;
+    }
+    .cartWindow{
+        height: 70vh !important;
+    }
+}
+@media only screen and (max-width: 767px){
+    .productWindow{
+        width: 100% !important;
+        border-radius: 0%;
+    }
+    .img{
+        height: 200px;
+    }
+    .detailsStuff{
+        font-size: 17px;
+    }
+    .detailsStuff name{
+        font-size: 2rem;
+    }
+    .cartWindow{
+        width: 80vw;
+        right: -80%;
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+}
