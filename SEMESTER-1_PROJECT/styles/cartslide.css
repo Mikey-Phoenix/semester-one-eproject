@@ -281,6 +281,7 @@
     .productWindow{
         width: 80vw;
     }
+    
     .img{
         height: 200px;
     }
@@ -293,11 +294,23 @@
     .cartWindow{
         height: 70vh !important;
     }
+    .cartWindow .web .innercontainer .name{
+        font-size: 30px !important;
+    }
 }
 @media only screen and (max-width: 767px){
     .productWindow{
         width: 100% !important;
         border-radius: 0%;
+    }
+    .productWindowContainer .name{
+        font-size: 30px !important;
+    }
+    .productWindowContainer .detailsStuff .price{
+        font-size: 30px !important;
+    }
+    .semiMobile .innercontainer .name{
+        font-size: 30px !important;
     }
     .img{
         height: 200px;

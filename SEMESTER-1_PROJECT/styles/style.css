@@ -265,21 +265,21 @@ header{
     font-family: 'Rubik Distressed', cursive;
 }
 #thirty{
-    background-image: url("../images/product/30-offclock-one.png");
+    background-image: url("https://clockshops.com/wp-content/uploads/2022/04/BUL-C4867-1-462x462.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     transition: all ease-in-out .3s;
     animation: fadeVisibility2 .3s;
 }
 #twenty{
-    background-image: url("../images/product/20-offwatch.png");
+    background-image: url("https://cdn11.bigcommerce.com/s-g62km8uew2/images/stencil/1280x1280/products/1180/35165/CLSL03_portrait_8__53813.1638464427.jpg?c=1");
     background-size: cover;
     background-repeat: no-repeat;
     transition: all ease-in-out .3s;
     animation: fadeVisibility2 .3s;
 }
 #ten{
-    background-image: url("../images/product/10-offsmart.png");
+    background-image: url("https://cdn11.bigcommerce.com/s-g62km8uew2/images/stencil/640w/products/1179/35144/CLCN05_portrait_8__04224.1638464168.jpg?c=1");
     background-size: cover;
     background-repeat: no-repeat;
     transition: all ease-in-out .3s;
@@ -413,7 +413,7 @@ img{
     padding-bottom: 50px;
 }
 .gridContainer .gridItem{
-    background-color: transparent;
+    /* background-color: transparent; */
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 270px auto;
@@ -423,6 +423,7 @@ img{
     position: relative;
     box-shadow: 1px 1px 5px rgb(14, 13, 13);
     transition: all ease .3s;
+    background-color: saddlebrown;
 }
 .gridItem:hover{
     cursor: pointer;
@@ -464,195 +465,14 @@ img{
     background-size: 175%;
 }
 
-/****************************************************************** PRODUCT ITEMS *******************************************************************/
-#first{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/MK3131_3f87ca22-25ed-44b6-abe4-136ae1304b38.jpg?v=1524778858');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#second{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/CA4184-81E.jpg?v=1574742887');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#third{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/GA1058-16E.jpg?v=1637620128');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#fourth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA136208_c852ee51-d9f1-44d0-8dd8-30798b9789f1.jpg?v=1524778703');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#fifth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA1264034_7c03c34f-e307-402e-a4df-999711234091.jpg?v=1637621334');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#sixth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA136219.jpg?v=1627943686');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#seventh{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/25751.jpg?v=1542869966');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#eighth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/23637.jpg?v=1627940969');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#ninth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/6752.jpg?v=1541446346');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#tenth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34570.jpg?v=1630020189');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#eleventh{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34456.jpg?v=1627941447');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twelfth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/34571.jpg?v=1630020190');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#thirteenth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/21683758-a293-4629-b808-10543ecedbb1_1.147f8d5a3850fe8caa7c9e6a5a745edd.jpg?v=1604004593');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#fourteenth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA114105_02717923-a018-470f-92ec-8c7acd3dd970.jpg?v=1506286144');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#fifteenth{
-    background-image: url('https://cdn.shopify.com/s/files/1/2117/1313/products/YA114214.jpg?v=1627943623');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#sixteenth{
-    background-image: url('https://cdn.mos.cms.futurecdn.net/8xuZK9nCBQq3x4gvwASrhT-970-80.jpg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#seventeenth{
-    background-image: url('https://cdn.mos.cms.futurecdn.net/aDuTmo22UyRPtSaJnbusok-970-80.jpg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#eighteenth{
-    background-image: url('https://cdn.mos.cms.futurecdn.net/XTCZn76aLRJgKxRYz3nwT9-970-80.jpg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#ninteenth{
-    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-625385-462x462.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twentyeth{
-    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-612221-462x462.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-first{
-    background-image: url('https://clockshops.com/wp-content/uploads/2016/03/HM-613180-462x462.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-second{
-    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2018/06/mini-camerer-kuss-drop-dial-wall-clock.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-third{
-    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2020/02/hooded-wall-clock-by-Whenham-and-Son-of-Dereham.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-fourth{
-    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2018/06/webster-fusee-dial-clock.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-fifth{
-    background-image: url('https://www.dorsetantiqueclocks.co.uk/wp-content/uploads/2022/05/french-striking-four-glass.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-sixth{
-    background-image: url('https://cdn.shopify.com/s/files/1/0659/1203/products/625340-1_1800x1800.jpg?v=1564858126');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-seventh{
-    background-image: url('https://cdn.shopify.com/s/files/1/0659/1203/products/645583_1800x1800.jpg?v=1564945312');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-eighth{
-    background-image: url('https://i.etsystatic.com/24564691/r/il/63f894/3942151072/il_794xN.3942151072_efe2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#twenty-ninth{
-    background-image: url('https://i.etsystatic.com/33111562/r/il/df408d/4093459583/il_794xN.4093459583_s49o.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#thirtyeth{
-    background-image: url('https://i.etsystatic.com/34094154/r/il/353aa5/4093973062/il_794xN.4093973062_1bur.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /****************************************************************** OTHERS *******************************************************************/
 .gridContainer .gridItem .other{
+    background-color: saddlebrown;
     padding:20px 0px 10px 10px;
     z-index: 1;
     color: white;
     font-size: 22px;
-    background-color: saddlebrown;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -669,12 +489,17 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100px;
+    width: 90%;
+    margin: auto;
 }
 .gridContainer .gridItem .other .inner-other .addToCart{
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
     transition: all ease .3s;
 }
 .gridContainer .gridItem .other .inner-other .addToCart:hover{
+    border: 2px solid #f6c763;
     color: #f6c763;
     cursor: pointer;
 }
@@ -797,6 +622,24 @@ img{
     margin: 20px 0px;
     border-top: 1px solid #f6c763;
     border-bottom: 1px solid #f6c763;
+}
+.paymentOptionContainer{
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+.paymentOption{
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    background-color: rgb(175, 88, 25);
+    color: #f6c763;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 .checkout .form-check-input{
     background-color: #f6c763 !important;
@@ -957,6 +800,7 @@ img{
 }
 iframe{
     margin-top: 50px;
+    width: 90vw;
 }
 .contactusStuff{
     width: fit-content;
@@ -1030,6 +874,66 @@ iframe{
     font-size: 30px;
     color: #f6c763;
 }
+.viewMore{
+    width: 200px;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    border-radius: 15px;
+    border: 0px;
+    transition: all ease .3s;
+}
+.viewMoreMobile{
+    display: none;
+    width: 300px;
+    height: 70px;
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(175, 88, 25);
+    border-radius: 15px;
+    border: 0px;
+    transition: all ease .3s;
+}
+
+.success{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    display: none;
+    z-index: 10000;
+}
+.successInner{
+    width: 350px; 
+    height: 200px; 
+    position: absolute; 
+    bottom: 50%; 
+    right: 50%; 
+    border-radius: 25px; 
+    background-color: saddlebrown; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    transform: translate(50%, 50%)
+}
+.successMessage{
+    font-size: 30px;
+    text-align: center;
+    color: #f6c763;
+}
+.cancel{
+    position: absolute; 
+    top: -4%; 
+    right: 5%; 
+    color: #f6c763; 
+    font-size: 30px; 
+    cursor: pointer
+}
 
 
 .seeFooter{
@@ -1072,6 +976,7 @@ iframe{
         padding-left: 0% !important;
         font-size: 20px !important;
     }
+    
     menu{
         grid-template-columns: auto auto auto;
         display: none;
@@ -1112,8 +1017,15 @@ iframe{
     #cvvlabel{
         width: fit-content;
     }
+    .paymentOptionContainer{
+        grid-template-columns: auto;
+        width: 100%;
+    }
+    .paymentOption{
+        width: 100%;
+    }
     .successMessage{
-        font-size: 25px !important;
+        font-size: 20px !important;
     }
     .cancelbutton{
         font-size: 25px !important;
@@ -1158,17 +1070,26 @@ iframe{
     .quote > div{
         font-size: 19px;
     }
+    .contactusStuff{
+        flex-direction: column;
+    }
     .contactUsHeading{
         width: 100% !important  ;
     }
     .contactInfo{
         width: 70vw;
     }
+    .checkoutmainform{
+        width: 100%;
+    }
     .contactusStuff .feedback{
         display: none;
     }
     .words{
         font-size: 19px;
+    }
+    .viewMoreMobile{
+        display: block !important;
     }
 }
 

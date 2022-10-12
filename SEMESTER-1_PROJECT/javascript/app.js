@@ -16,63 +16,16 @@ const timeinterval_a = setInterval(() => {
 timeinterval_a;
 
 
-const pic = ['../images/product/30-offclock-three.jpg', '../images/product/30-offclock-two.jpg'];
-let sub = 0;
-const bgCarousel30 = document.querySelector('#thirty');
-const timeinterval_30 = setInterval(() => {
-    bgCarousel30.style.background = ` url(${pic[sub]})`;
-    bgCarousel30.style.backgroundPosition = 'center';
-    bgCarousel30.style.backgroundSize = 'cover';
-    if (sub ==(pic.length)) {
-        bgCarousel30.style.background = ` url('../images/product/30-offclock-one.png')`;
-        bgCarousel30.style.backgroundPosition = 'center';
-        bgCarousel30.style.backgroundSize = 'cover';
-        sub = 0;
-    } else {
-        sub++;
-    }
-}, 20000);
-timeinterval_30;
-
-const image = ['../images/product/20-offwatch-two.png', '../images/product/20-offwatch-three.jpg'];
-let pry = 0;
-const bgCarousel20 = document.querySelector('#twenty');
-const timeinterval_20 = setInterval(() => {
-    bgCarousel20.style.background = ` url(${image[pry]})`;
-    bgCarousel20.style.backgroundPosition = 'center';
-    bgCarousel20.style.backgroundSize = 'cover';
-    if (pry ==(pic.length)) {
-        bgCarousel20.style.background = ` url('../images/product/20-offwatch.png')`;
-        bgCarousel20.style.backgroundPosition = 'center';
-        bgCarousel20.style.backgroundSize = 'cover';
-        pry = 0;
-    } else {
-        pry++;
-    }
-}, 25000);
-timeinterval_20;
-
-const img = ['../images/product/10-offsmart-two.jpg', '../images/product/10-offsmart-three.jpg'];
-let forNow = 0;
-const bgCarousel10 = document.querySelector('#ten');
-const timeinterval_10 = setInterval(() => {
-    bgCarousel10.style.background = ` url(${img[forNow]})`;
-    bgCarousel10.style.backgroundPosition = 'center';
-    bgCarousel10.style.backgroundSize = 'cover';
-    if (forNow ==(img.length)) {
-        bgCarousel10.style.background = ` url('../images/product/10-offsmart.png')`;
-        bgCarousel10.style.backgroundPosition = 'center';
-        bgCarousel10.style.backgroundSize = 'cover';
-        forNow = 0;
-    } else {
-        forNow++;
-    }
-}, 30000);
-timeinterval_10;
 
 
 
 
+
+
+
+window.addEventListener('loading', ()=>{
+    console.log('loading');
+})
 
 
 
@@ -83,7 +36,7 @@ const largeList = document.querySelector('.productWindowContainer');
 const list = document.querySelector('.productWindow');
 
 
-const exit = document.querySelector('.exit');
+const exit = document.querySelector('.productWindow').querySelector('.exit');
 
 
 exit.addEventListener('click', ()=>{
@@ -217,10 +170,10 @@ check();
 
 function add() {
     box = 0;
-    for (let i = 0; i <= capsule.length; i++) {                    
-        if (capsule[i].style.display != 'none') {
+    for (let i = 0; i < capsule.length; i++) {                    
+        if (capsule[i].style.display !== 'none') {
             console.log(capsule[i-1]);
-            box = box + parseFloat(capsule[i].querySelector('.amount').innerHTML);
+            box = box + parseFloat(capsule[i].querySelector('.amountInner').innerHTML);
             document.querySelector('.totalNumber').innerHTML = capsule.length;
             document.querySelector('.dot').innerHTML = document.querySelector('.totalNumber').innerHTML;
             document.querySelector('.totalAmount').innerHTML = `$${box}`;
@@ -231,12 +184,350 @@ function add() {
     }
 }
 
+function success(html) {
+    let success = document.querySelector('.success');
+    let successMessage = document.querySelector('.successMessage');
+    let cancel = document.querySelector('.cancel');
+    success.style.display = 'block';
+    successMessage.innerHTML = html;
+    cancel.addEventListener('click', ()=>{
+        success.style.display = 'none';
+    })
+}
 
-function info(url) {
-    fetch(url)
+let req = new XMLHttpRequest();
+
+const asyncFunc = (callback)=>{
+    req.addEventListener('readystatechange', ()=>{
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                callback(null , "https://mikey-phoenix.github.io/semester_one_storage/overall-semester-one-storage-file.json");
+            } else {
+                callback('something went wrong' , null);
+            }
+        } else {
+            
+        }
+    })
+}
+
+req.open("GET", "https://mikey-phoenix.github.io/semester_one_storage/overall-semester-one-storage-file.json", true);
+req.send(null);
+
+
+
+const handleData = (err , res)=>{
+    if (err) {
+        success('There was an error in connecting to the server');
+    } else {
+        fetch(res).then(res => res.json()).then(data =>{
+            console.log(data);
+            data.forEach((dat) => {
+            
+                pry = document.createElement('div')
+                pry.classList.add('gridItem');
+                if (data.indexOf(dat) < 18) {
+                    pry.classList.add('see')
+                    pry.classList.add('watches');
+                    console.log('watches');
+                    if (data.indexOf(dat) <= 2) {
+                        pry.classList.add('Regular');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } else if (data.indexOf(dat) <= 5 && data.indexOf(dat) >= 2){
+                        pry.classList.add('Luxury');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } else if (data.indexOf(dat) <= 11 && data.indexOf(dat) >= 5) {
+                        pry.classList.add('Vintage');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } else if (data.indexOf(dat) <= 14 && data.indexOf(dat) >= 11) {
+                        pry.classList.add('Digital');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } else if (data.indexOf(dat) <= 17 && data.indexOf(dat) >= 14) {
+                        pry.classList.add('Smart');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } if(data.indexOf(dat) == 9 || data.indexOf(dat) == 10 || data.indexOf(dat) == 11){
+                        pry.classList.add('Pocket');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } if (data.indexOf(dat) == 2 ||data.indexOf(dat) == 7 ||data.indexOf(dat) == 8 ||data.indexOf(dat) == 9 ||data.indexOf(dat) == 11 ||data.indexOf(dat) == 12) {
+                        pry.classList.add('Used');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } if (data.indexOf(dat) == 1 || data.indexOf(dat) == 4 || data.indexOf(dat) == 6 || data.indexOf(dat) == 8 || data.indexOf(dat) == 9 || data.indexOf(dat) == 10 || data.indexOf(dat) == 11 || data.indexOf(dat) == 12 || data.indexOf(dat) == 13 || data.indexOf(dat) == 14 || data.indexOf(dat) == 16 || data.indexOf(dat) == 17 || data.indexOf(dat) == 18) {
+                        pry.classList.add('Men');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    } if (data.indexOf(dat) == 0 || data.indexOf(dat) == 2 || data.indexOf(dat) == 4 || data.indexOf(dat) == 6 || data.indexOf(dat) == 14 || data.indexOf(dat) == 15 || data.indexOf(dat) == 16 || data.indexOf(dat) == 17) {
+                        pry.classList.add('Women');
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);
+                    }
+                } else {
+                    pry.classList.add('see');
+                    pry.classList.add('clocks');
+                    console.log('clocks');
+                    if (data.indexOf(dat) <= 20 && data.indexOf(dat) >= 18) {
+                        pry.classList.add('Vintage')
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry);  
+                    } else if (data.indexOf(dat) <= 23 && data.indexOf(dat) >= 21) {
+                        pry.classList.add('Luxury')
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry); 
+                    } else if (data.indexOf(dat) <= 26 && data.indexOf(dat) >= 23) {
+                        pry.classList.add('Regular')
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry); 
+                    } else if (data.indexOf(dat) >= 27) {
+                        pry.classList.add('Digital')
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry); 
+                    } if (data.indexOf(dat) == 25 || data.indexOf(dat) == 28 || data.indexOf(dat) == 29) {
+                        pry.classList.add('Used')
+                        pry.innerHTML = 
+                        `
+                            <div class="image-holder" onclick="info(${data.indexOf(dat)})">
+                                <div class="cast" style="background-image: url(${dat.image}); background-size: cover; background-position: center; background-repeat: no-repeat;" >
+                                </div>
+                            </div>
+                            <div class="other">
+                                <p class="name" onclick="info(${data.indexOf(dat)})">${dat.name}</p>
+                                <div class="inner-other">
+                                <p class="info">$${dat.newPrice}</p>
+                                <p class="cart"><abbr title="Add to cart"><i class="fa-solid fa-cart-shopping addToCart" onclick="added(${data.indexOf(dat)})"></i></abbr></p>
+                                </div>
+                            </div>
+                        `
+                        
+                        document.querySelector('.gridContainer').appendChild(pry); 
+                    }
+                                        
+                }
+            });
+            let cartbtns = Array.from(document.querySelectorAll('.addToCart'));
+            for (const btn of cartbtns) {
+                btn.addEventListener('click', (e)=>{
+                    console.log(e);
+                    // let cartbtn = btn;
+                    e.target.style.backgroundColor = 'white'
+                    e.target.style.color = '#f6c763'
+                    setTimeout(() => {
+                        e.target.style.backgroundColor = 'saddlebrown';
+                        e.target.style.color = 'white';
+                    }, 2000);
+                })
+            }
+            ontab(0, 'gridItem')
+        })
+    }
+}
+
+asyncFunc(handleData);
+
+function clicked(btn) {
+    let cartbtn = btn;
+    cartbtn.backgroundColor = 'white'
+    cartbtn.color = '#f6c763'
+    setTimeout(() => {
+        cartbtn.background = '#f6c763';
+        cartbtn.color = 'white';
+    }, 2000);
+}
+
+function info(index) {
+    console.log(document.querySelector('.image-holder'));
+    fetch("https://mikey-phoenix.github.io/semester_one_storage/overall-semester-one-storage-file.json")
     .then(res => res.json())
     .then(data =>{
-        let temp = data;
+        let temp = data[index];
+        // console.log(temp);
         localStorage.setItem('store1', JSON.stringify(temp));
         var store1 = JSON.parse(localStorage.getItem('store1'));
         console.log(store1);
@@ -275,17 +566,26 @@ function info(url) {
         }
 
         store1.forEach( loop(temp))
-                
+        
     })
 }
 
+let addToCart = Array.from(document.querySelectorAll('.addToCart'))
+addToCart.forEach((add)=>{
+    add.addEventListener('click', (e)=>{
+        e.target.style.cssText = "color: saddlebrown; background-color: #f6c763"
+        setTimeout(() => {
+            e.target.style.cssText = "color: white; background-color: saddlebrown"
+        }, 2000);
+    })
+})
 
 
-function added(url) {
-    fetch(url)
+function added(index) {
+    fetch("https://mikey-phoenix.github.io/semester_one_storage/overall-semester-one-storage-file.json")
     .then(res => res.json())
     .then(data =>{
-        let temp = data;
+        let temp = data[index];
         localStorage.setItem('store2', JSON.stringify(temp));
         var store2 = JSON.parse(localStorage.getItem('store2'));
         console.log(store2);
@@ -306,8 +606,14 @@ function added(url) {
             price.classList.add('price');
 
             const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
             amount.classList.add('amount')
+
+            const amountInner = document.createElement('span');
+            amountInner.innerHTML = temps.newPrice;
+            amountInner.classList.add('amountInner')
+
+            const dollar = document.createElement('span');
+            dollar.innerHTML = '$';
     
             const button = document.createElement('button');
             button.classList.add('remove');
@@ -315,6 +621,8 @@ function added(url) {
 
             const vault = tiny;
     
+            amount.appendChild(dollar);
+            amount.appendChild(amountInner);
             price.appendChild(amount);
             price.appendChild(button);
             tiny.appendChild(picture);
@@ -342,8 +650,14 @@ function added(url) {
             price.classList.add('price');
 
             const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
             amount.classList.add('amount')
+
+            const amountInner = document.createElement('span');
+            amountInner.innerHTML = temps.newPrice;
+            amountInner.classList.add('amountInner')
+
+            const dollar = document.createElement('span');
+            dollar.innerHTML = '$';
     
             const button = document.createElement('button');
             button.classList.add('remove');
@@ -375,6 +689,8 @@ function added(url) {
             const vault = tiny;
             // console.log(vault);
     
+            amount.appendChild(dollar);
+            amount.appendChild(amountInner);
             price.appendChild(amount);
             price.appendChild(button);
             tiny.appendChild(picture);
@@ -406,14 +722,19 @@ function added(url) {
             price.classList.add('price');
             
             const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
             amount.classList.add('amount')
+
+            const amountInner = document.createElement('span');
+            amountInner.innerHTML = temps.newPrice;
+            amountInner.classList.add('amountInner')
+
+            const dollar = document.createElement('span');
+            dollar.innerHTML = '$';
     
             const button = document.createElement('button');
             button.classList.add('remove');
             button.innerHTML = 'remove';
             button.addEventListener('click', (e)=>{
-                console.log(e);
                 e.path[2].style.display = 'none';
                 let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
                 // console.log(val);
@@ -435,6 +756,8 @@ function added(url) {
             const vault = tiny;
             // console.log(vault);
     
+            amount.appendChild(dollar);
+            amount.appendChild(amountInner);
             price.appendChild(amount);
             price.appendChild(button);
             tiny.appendChild(picture);
@@ -629,18 +952,21 @@ function addedClocks(url) {
 const repairForm = document.querySelector('.repair-form');
 const requestbtn = document.querySelector('.request');
 const gridContainer = document.querySelector('.gridContainer')
-const tabs = document.getElementsByClassName('productTabs');
-const grids = document.getElementsByClassName('gridItem');
-const totalGrid = grids.length;
+const tabs = Array.from(document.getElementsByClassName('productTabs'));
 let divisions = Array.from(document.getElementsByClassName('menuItem'));
 let menuObjects = document.getElementsByClassName('menuItem');
+let MobilemenuObjects = document.querySelector('.mobileMenu');
 let totalMenu = menuObjects.length;
 console.log(divisions);
 
 function ontab(a, c) {
+    const grids = Array.from(document.getElementsByClassName('gridItem'));
+    const totalGrid = grids.length;
+    console.log(grids);
     gridContainer.style.display = 'grid';
     requestbtn.style.display = 'none';
     repairForm.style.display = 'none';
+    MobilemenuObjects.style.display = 'block'
     for (const menu of menuObjects) {
         menu.style.display = 'flex';
     }
@@ -655,12 +981,12 @@ function ontab(a, c) {
     for (let i = 0; i < totalGrid; i++) {
         if (grids[i].classList.contains(c)) {
             grids[i].style.display = 'block';
+            // grids[i].classList.remove('see');
             for (const division of divisions) {
                 division.addEventListener("click", (a)=>{
                         switch (a.target.innerText) {
                             case 'Vintage':
                                 if (grids[i].classList.contains('Vintage')) {
-                                    console.log('bleck');
                                     grids[i].classList.remove('see');
                                 } else {
                                     grids[i].classList.add('see');
@@ -669,7 +995,6 @@ function ontab(a, c) {
                                 case 'Luxury':
                                     if (grids[i].classList.contains('Luxury')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -677,7 +1002,6 @@ function ontab(a, c) {
                                 case 'Regular':
                                     if (grids[i].classList.contains('Regular')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -685,7 +1009,6 @@ function ontab(a, c) {
                                 case 'Pocket Watches':
                                     if (grids[i].classList.contains('Pocket')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -693,7 +1016,6 @@ function ontab(a, c) {
                                 case 'Digital':
                                     if (grids[i].classList.contains('Digital')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -701,7 +1023,6 @@ function ontab(a, c) {
                                 case 'Smart Watches':
                                     if (grids[i].classList.contains('Smart')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -709,7 +1030,6 @@ function ontab(a, c) {
                                 case 'Fairly Used':
                                     if (grids[i].classList.contains('Used')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -717,7 +1037,6 @@ function ontab(a, c) {
                                 case 'For Men':
                                     if (grids[i].classList.contains('Men')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -725,7 +1044,6 @@ function ontab(a, c) {
                                 case 'For Women':
                                     if (grids[i].classList.contains('Women')) {
                                         grids[i].classList.remove('see');
-                                        console.log('bleck');
                                     } else {
                                     grids[i].classList.add('see');
                                 }
@@ -751,6 +1069,7 @@ function showform() {
     gridContainer.style.display = 'none';
     repairForm.style.display = 'block';
     requestbtn.style.display = 'block';
+    MobilemenuObjects.style.display = 'none';
     for (const menu of menuObjects) {
         menu.style.display = 'none';
     }
@@ -772,104 +1091,75 @@ function activecolor(text) {
     }
 }
 
+document.querySelector('.feedbackSubmit').addEventListener('click', (event)=>{
+    event.preventDefault();
+    sendEmail();
+})
+
+// function sendEmail(){
+//     Email.send({
+//         Host : "smtp.gmail.com",
+//         Username : "bajomichael06@gmail.com",
+//         Password : "D280F3B9026F39C2C40008AB910CA1F3981B",
+//         To : 'bcd9fb46-d12d-4a6c-adac-155e5ef0a162',
+//         From : document.querySelector('.feedbackform').querySelector('.email').value,
+//         Subject : "New contact form",
+//         Body : "And this is the body"
+//     }).then(
+//       message => alert(message)
+//     );
+// }
+// D280F3B9026F39C2C40008AB910CA1F3981B
+function sendEmail() {
+    Email.send({
+        SecureToken : "72666d88-96e0-45ec-9144-b3e72de1ea71",
+        To : 'bajomichael06@gmail.com',
+        From : `${document.querySelector('.feedbackform').querySelector('.email').value}`,
+        Subject : "This is the subject",
+        Body : "And this is the body"
+    }).then(
+        message => alert(message)
+        );
+        submit()
+}
+// bcd9fb46-d12d-4a6c-adac-155e5ef0a162
+// 125a1584-f049-4445-bc77-5c7b4510840c
+    // f49f56ac-8ddf-4f1f-b6cf-46234c3c50f1
+
+    const paymentOptions = Array.from(document.querySelectorAll('.paymentOption'));
+
+    console.log(paymentOptions);
+    for (const option of paymentOptions) {
+        option.addEventListener('click', ()=>{
+            success('This feature is coming soon')
+        })
+        
+    }
 
 const checkoutbtn = document.querySelector('.checkoutbtn');
 checkoutbtn.addEventListener('click', ()=>{
-    const success = document.createElement('div');
-    success.style.cssText = 'z-index: 100000';
-    success.style.backgroundColor = ' rgba(255, 255, 255, 0.8)';
-    success.style.width = '100vw';
-    success.style.height = '100vh';
-    success.style.position = 'fixed';
-    success.style.top = '0%';
-    success.style.left = '0%';
-
-    const successInner = document.createElement('div')
-    successInner.style.cssText = 'border-radius: 5px; border: 1px solid saddlebrown; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40vw; height: 40vh; background-color: white; padding: 20px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center';
-
-    const cancel = document.createElement('i');
-    cancel.style.cssText = 'position: absolute; top: 5%; right: 5%; color: saddlebrown; font-size: 50px; cursor: pointer'
-    cancel.innerHTML = '&times';
-    cancel.addEventListener('click', ()=>{
-        success.style.display = 'none';
-    })
-    
-    const successMessage = document.createElement('div');
-    successMessage.style.fontSize = '50px';
-    successMessage.style.color = 'saddlebrown';
-    successMessage.innerHTML = 'Thank you!';
-    successMessage.classList.add('successMessage');
-    
-    const cancelbutton = document.createElement('div');
-    cancelbutton.style.cssText = 'text-align: center; width: 80%; padding: 10px; bottom: 0%; border-radius: 10px; cursor: pointer';
-    cancelbutton.style.fontSize = '30px';
-    cancelbutton.style.color = 'white';
-    cancelbutton.style.backgroundColor = 'rgb(175, 88, 25)';
-    cancelbutton.innerHTML = 'close';
-    cancelbutton.classList.add('cancelbutton');
-    cancelbutton.addEventListener('click', ()=>{
-        success.style.display = 'none';
-    })
-
-    successInner.appendChild(successMessage);
-    successInner.appendChild(cancel);
-    successInner.appendChild(cancelbutton);
-    success.appendChild(successInner);
-    document.body.prepend(success);
+    success('Thank you!')
     setTimeout(() => {
         success.style.display = 'none'
     }, 5000);
 });
 
-const feedbackbtn = document.querySelector('.submit');
-feedbackbtn.addEventListener('click', ()=>{
-    const success = document.createElement('div');
-    success.style.cssText = 'z-index: 100000';
-    success.style.backgroundColor = ' rgba(255, 255, 255, 0.8)';
-    success.style.width = '100vw';
-    success.style.height = '100vh';
-    success.style.position = 'fixed';
-    success.style.top = '0%';
-    success.style.left = '0%';
-
-    const successInner = document.createElement('div')
-    successInner.style.cssText = 'border-radius: 5px; border: 1px solid saddlebrown; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40vw; height: 40vh; background-color: white; padding: 20px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center';
-
-    const cancel = document.createElement('i');
-    cancel.style.cssText = 'position: absolute; top: -4%; right: 5%; color: saddlebrown; font-size: 50px; cursor: pointer'
-    cancel.innerHTML = '&times';
-    cancel.addEventListener('click', ()=>{
-        success.style.display = 'none';
-    })
-    
-    const successMessage = document.createElement('div');
-    successMessage.style.fontSize = '30px';
-    successMessage.style.color = 'saddlebrown';
-    successMessage.innerHTML = 'Thank you for leaving a comment';
-    successMessage.classList.add('successMessage');
-    
-    const cancelbutton = document.createElement('div');
-    cancelbutton.style.cssText = 'text-align: center; width: 80%; padding: 10px; bottom: 0%; border-radius: 10px; cursor: pointer';
-    cancelbutton.style.fontSize = '30px';
-    cancelbutton.style.color = 'white';
-    cancelbutton.style.backgroundColor = 'rgb(175, 88, 25)';
-    cancelbutton.innerHTML = 'close';
-    cancelbutton.classList.add('cancelbutton');
-    cancelbutton.addEventListener('click', ()=>{
-        success.style.display = 'none';
-    })
-
-    successInner.appendChild(successMessage);
-    successInner.appendChild(cancel);
-    successInner.appendChild(cancelbutton);
-    success.appendChild(successInner);
-    document.body.prepend(success);
+// const feedbackbtn = document.querySelector('.submit');
+function submit() {
+    success('Thank you for leaving a comment');
     setTimeout(() => {
         success.style.display = 'none'
     }, 5000);
-});
+};
 
 requestbtn.addEventListener('click', ()=>{
+    success('One of our agents will reach you shortly.')
+    setTimeout(() => {
+        success.style.display = 'none'
+    }, 5000);
+});
+
+document.querySelector('.viewMore').addEventListener('click', ()=>{
     const success = document.createElement('div');
     success.style.cssText = 'z-index: 100000';
     success.style.backgroundColor = ' rgba(255, 255, 255, 0.8)';
@@ -879,39 +1169,160 @@ requestbtn.addEventListener('click', ()=>{
     success.style.top = '0%';
     success.style.left = '0%';
 
-    const successInner = document.createElement('div')
-    successInner.style.cssText = 'border-radius: 5px; border: 1px solid saddlebrown; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 40vh; background-color: white; padding: 20px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center';
-
+    const successInner = document.createElement('div');
+    successInner.style.cssText = 'width: 80vw; height: 80vh; display: flex; flex-direction: column; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll';
+    
     const cancel = document.createElement('i');
-    cancel.style.cssText = 'position: absolute; top: -4%; right: 5%; color: saddlebrown; font-size: 50px; cursor: pointer'
-    cancel.innerHTML = '&times';
+    cancel.style.cssText = 'position: absolute; top: 4%; right: 5%; font-size: 50px; cursor: pointer; background-color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;';
     cancel.addEventListener('click', ()=>{
         success.style.display = 'none';
-    })
+    });
+    const cancelInner = document.createElement('p');
+    cancelInner.innerHTML = '&times';
+    cancelInner.style.cssText = 'color: #f6c763;'
     
-    const successMessage = document.createElement('div');
-    successMessage.style.fontSize = '30px';
-    successMessage.style.color = 'saddlebrown';
-    successMessage.innerHTML = 'One of our agents will reach you shortly.';
-    successMessage.classList.add('successMessage');
-    
-    const cancelbutton = document.createElement('div');
-    cancelbutton.style.cssText = 'text-align: center; width: 80%; padding: 10px; bottom: 0%; border-radius: 10px; cursor: pointer';
-    cancelbutton.style.fontSize = '30px';
-    cancelbutton.style.color = 'white';
-    cancelbutton.style.backgroundColor = 'rgb(175, 88, 25)';
-    cancelbutton.innerHTML = 'close';
-    cancelbutton.classList.add('cancelbutton');
-    cancelbutton.addEventListener('click', ()=>{
-        success.style.display = 'none';
-    })
+    const successMessageOne = document.createElement('div');
+    successMessageOne.style.fontSize = '20px';
+    successMessageOne.style.textAlign = 'center';
+    successMessageOne.style.borderRadius = '15px';
+    successMessageOne.style.marginBottom = '50px';
+    successMessageOne.style.backgroundColor = 'saddlebrown';
+    successMessageOne.style.width = '100%';
+    successMessageOne.classList.add('feedbackItem');
+    successMessageOne.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
 
-    successInner.appendChild(successMessage);
-    successInner.appendChild(cancel);
-    successInner.appendChild(cancelbutton);
+    const successMessageTwo = document.createElement('div');
+    successMessageTwo.style.fontSize = '20px';
+    successMessageTwo.style.textAlign = 'center';
+    successMessageTwo.style.borderRadius = '15px';
+    successMessageTwo.style.marginBottom = '50px';
+    successMessageTwo.style.backgroundColor = 'saddlebrown';
+    successMessageTwo.style.width = '100%';
+    successMessageTwo.classList.add('feedbackItem');
+    successMessageTwo.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageThree = document.createElement('div');
+    successMessageThree.style.fontSize = '20px';
+    successMessageThree.style.textAlign = 'center';
+    successMessageThree.style.borderRadius = '15px';
+    successMessageThree.style.marginBottom = '50px';
+    successMessageThree.style.backgroundColor = 'saddlebrown';
+    successMessageThree.style.width = '100%';
+    successMessageThree.classList.add('feedbackItem');
+    successMessageThree.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageFour = document.createElement('div');
+    successMessageFour.style.fontSize = '20px';
+    successMessageFour.style.textAlign = 'center';
+    successMessageFour.style.borderRadius = '15px';
+    successMessageFour.style.marginBottom = '50px';
+    successMessageFour.style.backgroundColor = 'saddlebrown';
+    successMessageFour.style.width = '100%';
+    successMessageFour.classList.add('feedbackItem');
+    successMessageFour.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageFive = document.createElement('div');
+    successMessageFive.style.fontSize = '20px';
+    successMessageFive.style.textAlign = 'center';
+    successMessageFive.style.borderRadius = '15px';
+    successMessageFive.style.marginBottom = '50px';
+    successMessageFive.style.backgroundColor = 'saddlebrown';
+    successMessageFive.style.width = '100%';
+    successMessageFive.classList.add('feedbackItem');
+    successMessageFive.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+    
+
+    successInner.appendChild(successMessageOne);
+    successInner.appendChild(successMessageTwo);
+    successInner.appendChild(successMessageThree);
+    successInner.appendChild(successMessageFour);
+    successInner.appendChild(successMessageFive);
+    cancel.appendChild(cancelInner);
+    success.appendChild(cancel);
     success.appendChild(successInner);
     document.body.prepend(success);
-    setTimeout(() => {
-        success.style.display = 'none'
-    }, 5000);
-});
+})
+
+document.querySelector('.viewMoreMobile').addEventListener('click', ()=>{
+    const success = document.createElement('div');
+    success.style.cssText = 'z-index: 100000';
+    success.style.backgroundColor = ' rgba(255, 255, 255, 0.8)';
+    success.style.width = '100vw';
+    success.style.height = '100vh';
+    success.style.position = 'fixed';
+    success.style.top = '0%';
+    success.style.left = '0%';
+
+    const successInner = document.createElement('div');
+    successInner.style.cssText = 'width: 80vw; height: 80vh; display: flex; flex-direction: column; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll';
+    
+    const cancel = document.createElement('i');
+    cancel.style.cssText = 'position: absolute; top: 4%; right: 5%; font-size: 50px; cursor: pointer; background-color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 300;';
+    cancel.addEventListener('click', ()=>{
+        success.style.display = 'none';
+    });
+    const cancelInner = document.createElement('p');
+    cancelInner.innerHTML = '&times';
+    cancelInner.style.cssText = 'color: #f6c763;'
+    
+    const successMessageOne = document.createElement('div');
+    successMessageOne.style.fontSize = '20px';
+    successMessageOne.style.textAlign = 'center';
+    successMessageOne.style.borderRadius = '15px';
+    successMessageOne.style.marginBottom = '50px';
+    successMessageOne.style.backgroundColor = 'saddlebrown';
+    successMessageOne.style.width = '100%';
+    successMessageOne.classList.add('feedbackItem');
+    successMessageOne.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageTwo = document.createElement('div');
+    successMessageTwo.style.fontSize = '20px';
+    successMessageTwo.style.textAlign = 'center';
+    successMessageTwo.style.borderRadius = '15px';
+    successMessageTwo.style.marginBottom = '50px';
+    successMessageTwo.style.backgroundColor = 'saddlebrown';
+    successMessageTwo.style.width = '100%';
+    successMessageTwo.classList.add('feedbackItem');
+    successMessageTwo.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageThree = document.createElement('div');
+    successMessageThree.style.fontSize = '20px';
+    successMessageThree.style.textAlign = 'center';
+    successMessageThree.style.borderRadius = '15px';
+    successMessageThree.style.marginBottom = '50px';
+    successMessageThree.style.backgroundColor = 'saddlebrown';
+    successMessageThree.style.width = '100%';
+    successMessageThree.classList.add('feedbackItem');
+    successMessageThree.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageFour = document.createElement('div');
+    successMessageFour.style.fontSize = '20px';
+    successMessageFour.style.textAlign = 'center';
+    successMessageFour.style.borderRadius = '15px';
+    successMessageFour.style.marginBottom = '50px';
+    successMessageFour.style.backgroundColor = 'saddlebrown';
+    successMessageFour.style.width = '100%';
+    successMessageFour.classList.add('feedbackItem');
+    successMessageFour.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+
+    const successMessageFive = document.createElement('div');
+    successMessageFive.style.fontSize = '20px';
+    successMessageFive.style.textAlign = 'center';
+    successMessageFive.style.borderRadius = '15px';
+    successMessageFive.style.marginBottom = '50px';
+    successMessageFive.style.backgroundColor = 'saddlebrown';
+    successMessageFive.style.width = '100%';
+    successMessageFive.classList.add('feedbackItem');
+    successMessageFive.innerHTML = '<h4 class="name">Mary Jones</h4><p class="words">The guy here was great! Repaired watch and chain in a timely manner and had a great offer for a strap replacement. All the prices were reasonable and service was very courteous and friendly.</p>';
+    
+
+    successInner.appendChild(successMessageOne);
+    successInner.appendChild(successMessageTwo);
+    successInner.appendChild(successMessageThree);
+    successInner.appendChild(successMessageFour);
+    successInner.appendChild(successMessageFive);
+    cancel.appendChild(cancelInner);
+    success.appendChild(cancel);
+    success.appendChild(successInner);
+    document.body.prepend(success);
+})

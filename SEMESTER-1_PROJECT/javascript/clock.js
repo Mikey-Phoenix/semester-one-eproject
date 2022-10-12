@@ -18,7 +18,7 @@ function setClock(){
 
 
     document.getElementById("day").innerHTML = currentDate.getDate();
-    document.getElementById("month").innerHTML = currentDate.getMonth();
+    document.getElementById("month").innerHTML = currentDate.getMonth()+1;
     document.getElementById("year").innerHTML = currentDate.getFullYear();
 }
 setInterval(setClock, 1000)
