@@ -215,7 +215,7 @@
                 
 
               </div>
-              <form class="repair repair-form" >
+              <form class="repair repair-form" onsubmit="sendRequest(); reset(); return false;">
                 <div class="fullname">
                   <label for="Fname">First Name</label>
                   <label for="Lname">Last Name</label>
@@ -233,7 +233,7 @@
                 <label for="watch">Watch</label><br>
                 <input type="radio" name="item Clock" id="clock" class="repair-radios">
                 <label for="clock">Clock</label><br>
-                <textarea name="Problem Statement" placeholder="Problem Statement" required></textarea>
+                <textarea name="Problem Statement" placeholder="Problem Statement" class="problem" required></textarea>
                 <h3>Where would you like to recieve the service?</h3>
                 <input type="radio" name="whereToFixItem  Alberto's" id="shop" class="repair-radios">
                 <label for="shop">Alberto Clocks and Watch Shop</label><br/>
@@ -293,18 +293,6 @@
                   <input type="text" id="zip" class="checkoutforminputs" style="width: 50%;">
               </div>
                 
-                <!-- <div class="fullname">
-                  <label for="cardname">Name on card</label>
-                  <label for="cardnumber">Card number</label>
-                  <input type="text" id="cardname" class="checkoutforminputs small">
-                  <input type="text" id="cardnumber" class="checkoutforminputs small">
-                </div>
-                <div class="subname">
-                  <label for="Expiration">Expiration</label>
-                  <label for="cvv" id="cvvlabel">CVV</label>
-                  <input type="text" id="Expiration" class="checkoutforminputs small">
-                  <input type="text" id="cvv" class="checkoutforminputs small">
-                </div> -->
               </form>
               <div class="payments">
                 <h3 class="payment cofee">Payment Method</h3>
@@ -319,12 +307,6 @@
                     <div class="innerpayment">Trust</div>
                   </div>
                 </div>
-                <!-- <input type="radio" name="payby" id="creditcard" class="form-check-input">
-                <label for="creditcard">Credit card</label><br/>
-                <input type="radio" name="payby" id="debitcard" class="form-check-input">
-                <label for="debitcard">Debit card</label><br/>
-                <input type="radio" name="payby" id="Paypal" class="form-check-input">
-                <label for="Paypal">Paypal</label> -->
               </div>
               <button class="checkoutbtn">Save and checkout</button>
           </div>
@@ -392,9 +374,9 @@
               <a href="tel: 08168562130" class="phone"><i class="fa-solid fa-phone"></i> 08066744196</a>
               <form class="form feedbackform" onsubmit="sendEmail(); reset(); return false;">
                 <h2 class="heading">Feedback Form</h2>
-                <input type="text" name="Name" placeholder="Full Name" class="feedbackinputs" required/>
+                <input type="text" name="Name" placeholder="Full Name" class="feedbackinputs full" required/>
                 <input type="email" name="Email Address" placeholder="Email Address" class="feedbackinputs email" required/>
-                <textarea type="text" name="Feedback" placeholder="Air Your Thoughts" class="feedbackinputs" required></textarea>
+                <textarea type="text" name="Feedback" placeholder="Air Your Thoughts" class="feedbackinputs comment" required></textarea>
                 <button class="submit feedbackSubmit">Submit &#10132</button>
               </form>
             </div>
