@@ -180,7 +180,7 @@ function add() {
             document.querySelector('.totalNumberMobile').innerHTML = document.querySelector('.totalNumber').innerHTML;
             document.querySelector('.totalAmountMobile').innerHTML = `$${box}`;
         } else {box = box}
-
+        check()
     }
 }
 
@@ -666,7 +666,7 @@ function added(index) {
                 console.log(e);
                 check();
                 e.path[2].style.display = 'none';
-                let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
+                let val = e.path[2].querySelector('.price').querySelector('.amount').querySelector('.amountInner').innerHTML;
                 // console.log(val);
                 box = box - val;
                 let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
@@ -736,7 +736,7 @@ function added(index) {
             button.innerHTML = 'remove';
             button.addEventListener('click', (e)=>{
                 e.path[2].style.display = 'none';
-                let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
+                let val = e.path[2].querySelector('.price').querySelector('.amount').querySelector('.amountInner').innerHTML;
                 // console.log(val);
                 box = box - val;
                 let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
@@ -776,178 +776,6 @@ function added(index) {
                 
 }
 
-
-function addedClocks(url) {
-    fetch(url)
-    .then(res => res.json())
-    .then(data =>{
-        let temp = data;
-        localStorage.setItem('store2', JSON.stringify(temp));
-        var store2 = JSON.parse(localStorage.getItem('store2'));
-        console.log(store2);
-        function lappee(temps) {
-    
-            const tiny = document.createElement('div');
-            tiny.classList.add('innercontainer');
-    
-            const picture = document.createElement('img');
-            picture.src = temps.image;
-    
-            const name = document.createElement('div');
-            name.classList.add('name');
-            name.innerHTML = temps.name;
-    
-    
-            const price = document.createElement('p');
-            price.classList.add('price');
-
-            const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
-            amount.classList.add('amount')
-    
-            const button = document.createElement('button');
-            button.classList.add('remove');
-            button.innerHTML = 'remove';
-
-            const vault = tiny;
-    
-            price.appendChild(amount);
-            price.appendChild(button);
-            tiny.appendChild(picture);
-            tiny.appendChild(name);
-            tiny.appendChild(price);
-
-
-            capsule.push(tiny);
- 
-        }
-        function lapper(temps) {
-    
-            const tiny = document.createElement('div');
-            tiny.classList.add('innercontainer');
-    
-            const picture = document.createElement('img');
-            picture.src = temps.image;
-    
-            const name = document.createElement('div');
-            name.classList.add('name');
-            name.innerHTML = temps.name;
-    
-    
-            const price = document.createElement('p');
-            price.classList.add('price');
-
-            const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
-            amount.classList.add('amount')
-    
-            const button = document.createElement('button');
-            button.classList.add('remove');
-            button.innerHTML = 'remove';
-            button.addEventListener('click', (e)=>{
-                console.log(e);
-                check();
-                e.path[2].style.display = 'none';
-                let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
-                // console.log(val);
-                box = box - val;
-                let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
-                let tempCapsuleMobile =  document.querySelector('.totalNumberMobile').innerHTML;
-                
-                document.querySelector('.totalNumber').innerHTML = parseInt(tempCapsule) -1;
-                document.querySelector('.dot').innerHTML = parseInt(tempCapsule) -1;
-                if (box > 0) {
-                    document.querySelector('.totalAmount').innerHTML = `$${box}`;
-                } else {
-                    document.querySelector('.totalAmount').innerHTML = `$0`;
-                    box = 0;
-                    capsule = [];
-                }
-                document.querySelector('.totalNumberMobile').innerHTML = parseInt(tempCapsuleMobile) -1;
-                document.querySelector('.dot').innerHTML = parseInt(tempCapsuleMobile) -1;
-                document.querySelector('.totalAmountMobile').innerHTML = `$${box}`;
-            })
-
-            const vault = tiny;
-            // console.log(vault);
-    
-            price.appendChild(amount);
-            price.appendChild(button);
-            tiny.appendChild(picture);
-            tiny.appendChild(name);
-            tiny.appendChild(price);
-
-            cartList.appendChild(vault);
-            // cartListMobile.appendChild(tiny); 
-
-            // capsule.push(tiny);
-            // console.log(capsule);
-            
- 
-        }
-        function lap(temps) {
-    
-            const tiny = document.createElement('div');
-            tiny.classList.add('innercontainer');
-    
-            const picture = document.createElement('img');
-            picture.src = temps.image;
-    
-            const name = document.createElement('div');
-            name.classList.add('name');
-            name.innerHTML = temps.name;
-    
-    
-            const price = document.createElement('p');
-            price.classList.add('price');
-            
-            const amount = document.createElement('p')
-            amount.innerHTML = temps.newPrice;
-            amount.classList.add('amount')
-    
-            const button = document.createElement('button');
-            button.classList.add('remove');
-            button.innerHTML = 'remove';
-            button.addEventListener('click', (e)=>{
-                console.log(e);
-                e.path[2].style.display = 'none';
-                let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
-                // console.log(val);
-                box = box - val;
-                let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
-                let tempCapsuleMobile =  document.querySelector('.totalNumberMobile').innerHTML;
-                document.querySelector('.totalNumber').innerHTML = parseInt(tempCapsule) -1;
-                if (box > 0) {
-                    document.querySelector('.totalAmount').innerHTML = `$${box}`;
-                } else {
-                    document.querySelector('.totalAmount').innerHTML = `$0`;
-                    box = 0;
-                    capsule = [];
-                }
-                document.querySelector('.totalNumberMobile').innerHTML = parseInt(tempCapsuleMobile) -1;
-                document.querySelector('.totalAmountMobile').innerHTML = `$${box}`;
-            })
-
-            const vault = tiny;
-            // console.log(vault);
-    
-            price.appendChild(amount);
-            price.appendChild(button);
-            tiny.appendChild(picture);
-            tiny.appendChild(name);
-            tiny.appendChild(price);
-
-            // cartList.appendChild(vault);
-            cartListMobile.appendChild(tiny); 
- 
-        }
-        
-    
-        store2.forEach(check(), lapper(temp), lap(temp), lappee(temp), add());
-    })
-
-                
-}
 
 const repairForm = document.querySelector('.repair-form');
 const requestbtn = document.querySelector('.request');
@@ -1096,45 +924,51 @@ document.querySelector('.feedbackSubmit').addEventListener('click', (event)=>{
     sendEmail();
 })
 
-// function sendEmail(){
-//     Email.send({
-//         Host : "smtp.gmail.com",
-//         Username : "bajomichael06@gmail.com",
-//         Password : "D280F3B9026F39C2C40008AB910CA1F3981B",
-//         To : 'bcd9fb46-d12d-4a6c-adac-155e5ef0a162',
-//         From : document.querySelector('.feedbackform').querySelector('.email').value,
-//         Subject : "New contact form",
-//         Body : "And this is the body"
-//     }).then(
-//       message => alert(message)
-//     );
-// }
-// D280F3B9026F39C2C40008AB910CA1F3981B
 function sendEmail() {
     Email.send({
         SecureToken : "72666d88-96e0-45ec-9144-b3e72de1ea71",
         To : 'bajomichael06@gmail.com',
         From : `${document.querySelector('.feedbackform').querySelector('.email').value}`,
-        Subject : "This is the subject",
-        Body : "And this is the body"
+        Subject : "Alberto Clocks and Watch Shop Feedback Form",
+        Body : `Name: ${document.querySelector('.feedbackform').querySelector('.full').value}
+                Email Address: ${document.querySelector('.feedbackform').querySelector('.email').value}
+                Comment: ${document.querySelector('.feedbackform').querySelector('.comment').value}`
     }).then(
-        message => alert(message)
+        message => alert('Thank you for leaving a comment')
         );
-        submit()
 }
-// bcd9fb46-d12d-4a6c-adac-155e5ef0a162
-// 125a1584-f049-4445-bc77-5c7b4510840c
-    // f49f56ac-8ddf-4f1f-b6cf-46234c3c50f1
+function sendRequest() {
+    Email.send({
+        SecureToken : "72666d88-96e0-45ec-9144-b3e72de1ea71",
+        To : 'bajomichael06@gmail.com',
+        From : `${document.querySelector('#Email').value}`,
+        Subject : "Alberto Clocks and Watch Shop Repair Item Request",
+        Body : `Name: ${document.querySelector('#Fname').value} ${document.querySelector('#Lname').value}
+                Email Address: ${document.querySelector('#Email').value}
+                Phone Number: ${document.querySelector('#phone').value}
+                Address: ${document.querySelector('#homeAddress').value}
+                The item that needs fixing:
+                    Watch: ${document.querySelector('#watch').value}
+                    Clock: ${document.querySelector('#clock').value}
+                Problem: ${document.querySelector('.problem').value}
+                Where the client wants it to be fixed:
+                    Shop: ${document.querySelector('#shop').value}
+                    Different Location: ${document.querySelector('#house').value}`
+    }).then(
+        message => alert('One of our agents will reach you shortly.')
+        );
+}
 
-    const paymentOptions = Array.from(document.querySelectorAll('.paymentOption'));
 
-    console.log(paymentOptions);
-    for (const option of paymentOptions) {
-        option.addEventListener('click', ()=>{
-            success('This feature is coming soon')
-        })
-        
-    }
+const paymentOptions = Array.from(document.querySelectorAll('.paymentOption'));
+
+console.log(paymentOptions);
+for (const option of paymentOptions) {
+    option.addEventListener('click', ()=>{
+        success('This feature is coming soon')
+    })
+    
+}
 
 const checkoutbtn = document.querySelector('.checkoutbtn');
 checkoutbtn.addEventListener('click', ()=>{
@@ -1144,20 +978,6 @@ checkoutbtn.addEventListener('click', ()=>{
     }, 5000);
 });
 
-// const feedbackbtn = document.querySelector('.submit');
-function submit() {
-    success('Thank you for leaving a comment');
-    setTimeout(() => {
-        success.style.display = 'none'
-    }, 5000);
-};
-
-requestbtn.addEventListener('click', ()=>{
-    success('One of our agents will reach you shortly.')
-    setTimeout(() => {
-        success.style.display = 'none'
-    }, 5000);
-});
 
 document.querySelector('.viewMore').addEventListener('click', ()=>{
     const success = document.createElement('div');

@@ -121,7 +121,7 @@ discountCartbtn.addEventListener('click', ()=>{
             console.log(e);
             check();
             e.path[2].style.display = 'none';
-            let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
+            let val = e.path[2].querySelector('.price').querySelector('.amount').querySelector('.amountInner').innerHTML;
             box = box - val;
             let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
             let tempCapsuleMobile =  document.querySelector('.totalNumberMobile').innerHTML;
@@ -189,7 +189,7 @@ discountCartbtn.addEventListener('click', ()=>{
             console.log(e);
             check();
             e.path[2].style.display = 'none';
-            let val = e.path[2].querySelector('.price').querySelector('.amount').innerHTML;
+            let val = e.path[2].querySelector('.price').querySelector('.amount').querySelector('.amountInner').innerHTML;
             box = box - val;
             let tempCapsule =  document.querySelector('.totalNumber').innerHTML;
             let tempCapsuleMobile =  document.querySelector('.totalNumberMobile').innerHTML;
